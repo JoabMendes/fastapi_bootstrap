@@ -1,0 +1,19 @@
+# global
+fastapi==0.68.1
+uvicorn==0.15.0
+gunicorn==20.1.0
+requests==2.26.0
+python-dotenv==0.20.0
+
+# dev
+pytest==6.2.5
+pytest-xdist==2.4.0
+pytest-cov==2.12.1
+diff-cover==6.4.0
+flake8==3.9.2
+isort==5.9.3
+black==22.3.0
+Faker==8.14.1
+pytest-asyncio==0.15.1
+testfixtures==6.18.3
+

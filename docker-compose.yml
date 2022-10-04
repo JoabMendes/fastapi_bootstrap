@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+
+  app:
+    container_name: '${APP_NAME}-app'
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # command: scripts/start-local-server.sh
+    restart: on-failure:5
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/home/${APP_NAME}/project
+
+volumes:
+  app-db-data:
