@@ -8,7 +8,7 @@ GIT_FETCH_MAIN_CMD = git fetch origin main:refs/remotes/origin/main
 build-run:
 	# Run the development server on background
 	docker-compose up -d --build
-	# Now head to http://0.0.0.0:5000/healthcheck
+	# Now head to http://0.0.0.0:5000/api/v1/healthcheck
 
 see-log-app:
 	docker-compose logs app
@@ -44,13 +44,6 @@ test-coverage-html: build-run
 	docker-compose exec app $(PYTEST_COVERAGE_CMD) --cov-report=xml --cov-report=html
 	$(GIT_FETCH_MAIN_CMD)
 	diff-cover ./coverage.xml --compare-branch=main
-	echo "Report available on htmlcov/index.html"
-	make stop-docker
-
-test-coverage-diff-html: build-run
-	docker-compose exec app $(PYTEST_COVERAGE_CMD) --cov-report=xml
-	$(GIT_FETCH_MAIN_CMD)
-	diff-cover ./coverage.xml --compare-branch=main --html-report coverage-diff.html
 	echo "Report available on htmlcov/index.html"
 	make stop-docker
 

@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-ENV APP_NAME=bootstrap
+ENV APP_NAME=baseproject
 # Define workdir
 ENV WORKDIR=/home/${APP_NAME}/project
 # Keeps Python from generating .pyc files in the container
@@ -29,6 +29,7 @@ COPY requirements.txt ${WORKDIR}/requirements.txt
 RUN pip install --upgrade pip \
  && pip install --ignore-installed -r ${WORKDIR}/requirements.txt
 
-COPY --chown=origin ./src/app/ ${WORKDIR}/src/app/
+COPY --chown=baseproject ./src/app/ ${WORKDIR}/src/app/
+COPY --chown=baseproject ./scripts ${WORKDIR}/scripts
 
 WORKDIR ${WORKDIR}
