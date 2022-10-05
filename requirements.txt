@@ -16,4 +16,5 @@ black==22.3.0
 Faker==8.14.1
 pytest-asyncio==0.15.1
 testfixtures==6.18.3
+freezegun==1.2.1
 
